@@ -3,18 +3,17 @@ package com.example.notes.adapter
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncDifferConfig
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.notes.databinding.NoteLayoutBinding
-import com.example.notes.fragments.HomeFragment
 import com.example.notes.fragments.HomeFragmentDirections
 import com.example.notes.model.Note
-import kotlin.random.Random
+import java.util.*
 
-class NoteAdapter(private val noteList: List<Note>): RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter: RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     class NoteViewHolder(val itemBinding: NoteLayoutBinding)
         : ViewHolder(itemBinding.root)
@@ -46,7 +45,7 @@ class NoteAdapter(private val noteList: List<Note>): RecyclerView.Adapter<NoteAd
     }
 
     override fun getItemCount(): Int {
-        return noteList.size
+        return differ.currentList.size
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
@@ -55,7 +54,7 @@ class NoteAdapter(private val noteList: List<Note>): RecyclerView.Adapter<NoteAd
         holder.itemBinding.noteTitleTextView.text = currentNote.noteTitle
         holder.itemBinding.noteBodyTextView.text = currentNote.noteBody
 
-        val random = Random(1)
+        val random = Random()
         val color = Color.argb(
             255,
             random.nextInt(256),
@@ -64,8 +63,12 @@ class NoteAdapter(private val noteList: List<Note>): RecyclerView.Adapter<NoteAd
         )
 
         holder.itemBinding.ibColor.setBackgroundColor(color)
+
         holder.itemView.setOnClickListener {
-            val direction = HomeFragmentDirections
+            val direction = HomeFragmentDirections.
+            actionHomeFragmentToUpdateNoteFragment(currentNote)
+
+            it.findNavController().navigate(direction)
         }
     }
 }
