@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.notes.MainActivity
 import com.example.notes.R
-import com.example.notes.adapter.NoteAdapter
 import com.example.notes.databinding.FragmentNewNoteBinding
 import com.example.notes.model.Note
 import com.example.notes.viewmodel.NoteViewModel
