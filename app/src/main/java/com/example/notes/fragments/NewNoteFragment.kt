@@ -55,7 +55,7 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
 
             Toast.makeText(
                 mView.context,
-                "Note $noteTitle successfully created",
+                "Note $noteTitle is successfully created",
                 Toast.LENGTH_SHORT
             ).show()
 
@@ -76,11 +76,6 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
@@ -88,7 +83,12 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
                 saveNote(mView)
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
 }

@@ -91,7 +91,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         menu.clear()
         inflater.inflate(R.menu.home_menu, menu)
 
-        val menuSearch = menu.findItem(R.id.searchMenu).actionView as SearchView
+        val menuSearch = menu.findItem(R.id.menu_search).actionView as SearchView
         menuSearch.isSubmitButtonEnabled = false
         menuSearch.setOnQueryTextListener(this)
     }
