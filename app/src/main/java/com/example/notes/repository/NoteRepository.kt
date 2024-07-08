@@ -3,7 +3,7 @@ package com.example.notes.repository
 import com.example.notes.database.NoteDataBase
 import com.example.notes.model.Note
 
-class NoteRepository(private val db: NoteDataBase) {
+class NoteRepository(db: NoteDataBase) {
 
     private val dao = db.getNoteDao()
 

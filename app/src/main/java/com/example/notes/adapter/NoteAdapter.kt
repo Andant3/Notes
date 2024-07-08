@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.notes.R
 import com.example.notes.databinding.NoteLayoutBinding
 import com.example.notes.fragments.HomeFragmentDirections
 import com.example.notes.model.Note
@@ -54,15 +55,11 @@ class NoteAdapter: RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
         holder.itemBinding.noteTitleTextView.text = currentNote.noteTitle
         holder.itemBinding.noteBodyTextView.text = currentNote.noteBody
 
-        val random = Random()
-        val color = Color.argb(
-            255,
-            random.nextInt(256),
-            random.nextInt(256),
-            random.nextInt(256)
+        val colorBlack = Color.argb(
+            255, 0,0,0
         )
 
-        holder.itemBinding.ibColor.setBackgroundColor(color)
+        holder.itemBinding.ibColor.setBackgroundColor(colorBlack)
 
         holder.itemView.setOnClickListener {
             val direction = HomeFragmentDirections.
