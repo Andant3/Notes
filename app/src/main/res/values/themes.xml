@@ -3,6 +3,7 @@
     <style name="Base.Theme.Notes" parent="Theme.AppCompat.DayNight.DarkActionBar">
 
         <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary</item>
     </style>
 
     <style name="Theme.Notes" parent="Base.Theme.Notes" />
